@@ -26,7 +26,7 @@ options(warn = -1)
 ##########################################################################################################
 
 scAnno <- function(
-	query        = obj.seu, 
+  obj.seu      = query, 
 	ref.expr     = ref.expr, 
 	ref.anno     = ref.anno,
 	save.markers = "markers",

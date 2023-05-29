@@ -13,8 +13,6 @@ rlmDewcon(ref, bulk)
 }
 \value{
 A data.frame of coefficients for cell types.
-
-
 }
 \description{
 rlmDewcon

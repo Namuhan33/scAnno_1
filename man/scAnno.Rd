@@ -5,10 +5,10 @@
 \title{scAnno}
 \usage{
 scAnno(
-  query = obj.seu,
+  obj.seu = query,
   ref.expr = ref.expr,
   ref.anno = ref.anno,
-  save.markers = NULL,
+  save.markers = "markers",
   cluster.col = "seurat_clusters",
   factor.size = 0.1,
   pvalue.cut = 0.01,
@@ -16,22 +16,28 @@ scAnno(
   seed.num = 10,
   subset.size = NULL,
   redo.markers = FALSE,
-  gene.anno = data(gene.anno),
+  gene.anno = gene.anno,
   permut.num = 100,
+  permut.p = 0.01,
   show.plot = TRUE,
-  verbose = TRUE
+  verbose = TRUE,
+  tcga.data.u = tcga.data.u
 )
 }
 \arguments{
+\item{obj.seu}{Seurat object, which need to be annotated.}
+
 \item{ref.expr}{Reference gene expression profile.}
 
 \item{ref.anno}{Cell type information of reference profile, corresponding to the above \code{ref.expr}.}
 
-\item{save.markers}{Specified the filename of makers need to be saved.}
+\item{save.markers}{Specified the filename of makers need to be saved. Default: markers.}
 
 \item{cluster.col}{Column name of clusters to be annotated in meta.data slot of query Seurat object. Default: seurat_clusters.}
 
 \item{factor.size}{Factor size for scaling the weight of gene expression. Default: 0.1.}
+
+\item{pvalue.cut}{Threshold for filtering cell type-specific markers. Default: 0.01.}
 
 \item{method}{Specified method for selecting candidate marker genes, co.exp \link{co-expression with seed genes} or diff.exp \link{differential expressed genes by Seurat method}. Default: co.exp.}
 
@@ -41,18 +47,20 @@ scAnno(
 
 \item{redo.markers}{Re-search candidate markers or not. Default: FALSE.}
 
-\item{gene.anno}{Gene annotation data.frame. Default: data(gene.anno).}
+\item{gene.anno}{Gene annotation data.frame. Default: gene.anno.}
 
 \item{permut.num}{Number of permutations for estimating p-values of annotations. Default: 100.}
+
+\item{permut.p}{Threshold for significance of predicted scores.Default: 0.01.}
 
 \item{show.plot}{Show annotated results or not. Default: TRUE.}
 
 \item{verbose}{Show running messages or not. Default: TRUE.}
 
-\item{obj.seu}{Seurat object, which need to be annotated.}
+\item{tcga.data.u}{bulk RNA-seq data of pan-cancer in TCGA.}
 }
 \value{
-Annotated Seurat object.
+Annotated Seurat object.Default: tcga.data.u
 }
 \description{
 scAnno
