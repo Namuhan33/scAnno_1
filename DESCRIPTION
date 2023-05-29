@@ -1,4 +1,4 @@
-Package: scAnno_1
+Package: scAnno
 Title: A deconvolution strategy-based automatic cell type annotation tool for single-cell RNA sequencing datasets.
 Version: 1.0.0
 Author: Hongjia Liu, Huamei Li
